@@ -1,0 +1,113 @@
+//Copy to sql file to run
+
+//TASK: Retrieve all data and column from customers
+SELECT * 
+FROM customers
+
+//TASK: Retrieve ONLY first name and country of all customers
+SELECT
+	first_name,
+    country
+FROM
+	customers
+
+//TASK: List all countries of all customers without duplicates
+SELECT DISTINCT
+    country
+FROM
+	customers
+
+//TASK: Retrieve all customers where the result is sorted by score (smallest first)
+SELECT * 
+FROM customers
+ORDER BY score ASC
+//ORDER BY default is ASC
+
+//TASK: Retrieve all customers where the result is sorted by score (highest first)
+SELECT * 
+FROM customers
+ORDER BY score DESC
+
+//TASK: Retrieve all customers, sorting the result by country (A-Z) and then by score (highest first)
+SELECT * 
+FROM customers
+ORDER BY country ASC, score DESC
+
+//TASK: List ONLY German customers
+SELECT * 
+FROM customers
+WHERE country = 'Germany'
+
+//TASK: Find all customers whose score is higher than 500
+SELECT * 
+FROM customers
+WHERE score > 500
+//Not equal symbol is both <> and !=
+
+//TASK: Find all customers who come from Germany AND whose score is less than 400
+SELECT * 
+FROM customers
+WHERE country = 'Germany' AND score < 400
+
+//TASK: Find all customers whose score is NOT less than 400
+SELECT * 
+FROM customers
+WHERE NOT score < 400
+
+//TASK: Find all customers whose score falls in the range between 100 and 500
+SELECT * 
+FROM customers
+WHERE score BETWEEN 100 AND 500
+
+//TASK: Find all customers whose ID is equal to 1, 2 or 5
+SELECT * 
+FROM customers
+WHERE customer_id IN(1,2,5)
+
+//TASK: Find all customers whose first name starts with M
+SELECT * 
+FROM customers
+WHERE first_name LIKE 'M%'
+
+//TASK: List customer ID, first name, order ID, quantity.
+//Include the customers who have not placed any oders
+SELECT 
+	c.customer_id, 
+    c.first_name, 
+    o.order_id, 
+    o.quantity
+FROM customers AS c
+LEFT JOIN orders AS o
+ON c.customer_id = o.customer_id
+
+//TASK: Full Join 
+SELECT 
+	c.customer_id, 
+    c.first_name, 
+    o.order_id, 
+    o.quantity
+FROM customers AS c
+LEFT JOIN orders AS o
+ON c.customer_id = o.customer_id
+UNION
+SELECT 
+	c.customer_id, 
+    c.first_name, 
+    o.order_id, 
+    o.quantity
+FROM customers AS c
+RIGHT JOIN orders AS o
+ON c.customer_id = o.customer_id
+
+//TASK: List first name, last name and country of all persons from customers and employees
+SELECT 
+	first_name, 
+    last_name, 
+    country
+FROM customers
+UNION
+SELECT 
+	first_name, 
+    last_name, 
+    emp_country
+FROM employees
