@@ -54,4 +54,19 @@ FULL OUTER JOIN
 ### UNION
 In the query, both must have exactly the same number of columns and in the same order DATA TYPE, remember this, DATA TYPE.
 UNION ALL 
-Combines the row without remove duplicates
+Combines the row without remove duplicates.
+
+## Aggregate Functions
+COUNT
+SUM
+AVG
+MAX
+MIN
+
+## String Function
+CONCAT
+LOWER
+UPPER
+TRIM : remove leading and trailing spaces from a string
+LENGHT
+SUBSTRING

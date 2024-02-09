@@ -1,0 +1,14 @@
+//Task: Find the total number of customers
+SELECT COUNT(*) AS total
+FROM customers
+
+//Task: Find the total quantity of all orders
+SELECT SUM(quantity) AS sum_quantity
+FROM orders
+
+//Task: Find the earliest and lastest order dates
+SELECT MIN(order_date) AS min_max_orderdate
+FROM orders
+UNION
+SELECT MAX(order_date) 
+FROM orders
