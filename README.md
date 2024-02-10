@@ -68,5 +68,15 @@ CONCAT
 LOWER
 UPPER
 TRIM : remove leading and trailing spaces from a string
-LENGHT
+LENGTH
 SUBSTRING
+
+## GROUP BY, HAVING
+GROUP BY : group rows based on column values
+HAVING : filters the groups returned by GROUP BY
+
+HAVING and WHERE
+WHERE filters rows before any grouping take place
+
+HAVING filters values after they have been groups
+HAVING works only with GROUP BY clause

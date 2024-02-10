@@ -12,3 +12,45 @@ FROM orders
 UNION
 SELECT MAX(order_date) 
 FROM orders
+
+//Task: List all customers names, where the name is combination of first name and last name
+//In upper case
+SELECT 
+	UPPER(CONCAT(TRIM(first_name),' ',TRIM(last_name))) 
+    AS customer_name
+FROM customers
+
+//Task: Find length of the last_name of all customers
+SELECT
+	LENGTH(TRIM(last_name)) AS len_lastname
+FROM customers
+
+//Task: Subtract 3 characters from the last name of all customers, starting from the 2nd position
+SELECT
+	SUBSTRING(TRIM(last_name),2,3) AS sub_lastname
+FROM customers
+
+//Task: Find the total number of customers for each country
+//Task: Sort the result by total
+SELECT
+	COUNT(*) AS total_customer,
+    country
+FROM customers
+GROUP BY country
+ORDER BY total_customer
+
+//Task: Find the highest score of customers for each country
+SELECT
+	MAX(score) AS max_score,
+    country
+FROM customers
+GROUP BY country
+
+//Task: Find the total number of customers for each country
+//Task: Only include countries that have more than 1 customer
+SELECT
+	COUNT(*) AS total_customer,
+    country
+FROM customers
+GROUP BY country
+HAVING total_customer > 1
