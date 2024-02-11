@@ -54,3 +54,20 @@ SELECT
 FROM customers
 GROUP BY country
 HAVING total_customer > 1
+
+//Task: Find all orders placed from customers whose score higher than 500 using the customer ID 
+//Solu1
+SELECT *
+FROM orders
+WHERE customer_id IN
+	(SELECT customer_id 
+    FROM customers
+    WHERE score > 500)
+//Solu2
+SELECT *
+FROM orders AS o
+WHERE EXISTS
+	(SELECT 1 
+    FROM customers AS c
+    WHERE o.customer_id = c.customer_id
+    AND score > 500)

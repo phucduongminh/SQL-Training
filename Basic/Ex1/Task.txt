@@ -111,3 +111,42 @@ SELECT
     last_name, 
     emp_country
 FROM employees
+
+//Task: Insert new customer Anna Nixon from UK
+INSERT INTO customers 
+VALUE (DEFAULT,'Anna','Nixon','UK',NULL)
+
+//Task: Inser new customer Max Lang
+INSERT INTO customers
+(first_name, last_name) 
+VALUE ('Max','Lang')
+
+//Change the country of customer ID 7 to Germany
+UPDATE customers
+SET country = 'Germany'
+WHERE customer_id = 7
+
+//Task: Change the score of the customer Anna to 100 and change her country from UK to USA
+UPDATE customers
+SET country = 'USA', score = 100
+WHERE customer_id = 6
+
+//Task: Delete
+DELETE FROM customers
+WHERE customer_id IN (8,9)
+
+//Task: Create new SQL table called Persons with 4 columns:
+//ID, person name, birth date, phone
+CREATE TABLE persons (
+	person_id INT PRIMARY KEY AUTO_INCREMENT,
+    person_name VARCHAR(50) NOT NULL,
+    birth_date DATE,
+    phone VARCHAR(11) NOT NULL UNIQUE
+)
+
+//Task: Add new column called email to table Persons
+ALTER TABLE persons
+ADD email VARCHAR(50) NOT NULL UNIQUE
+
+//Task: Drop
+DROP TABLE persons

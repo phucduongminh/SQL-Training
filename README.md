@@ -12,8 +12,8 @@ DROP
 SELECT
 ### Data Manipulation
 INSERT
-DELETE
-UPDATE
+DELETE : Delete without WHERE will delete ALL rows (Using TRUNCATE instead)
+UPDATE : Update without WHERE changes the values of ALL rows
 ### Data Control
 GRANT
 REVOKE
@@ -80,3 +80,6 @@ WHERE filters rows before any grouping take place
 
 HAVING filters values after they have been groups
 HAVING works only with GROUP BY clause
+
+## DESCRIBE
+obtain information about table and column structure
