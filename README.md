@@ -83,3 +83,11 @@ HAVING works only with GROUP BY clause
 
 ## DESCRIBE
 obtain information about table and column structure
+
+## Data Types
+INT //Int Number
+DECIMAL(M,N) //Exact Value M digit, N digit after decimal place
+VARCHAR(1) //Text, length 1
+BLOB //Binary Large Object, Stores large data
+DATE //'YYYY-MM-DD'
+TIMESTAMP //'YYYY-MM-DD HH:MM:SS'
